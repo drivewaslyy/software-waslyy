@@ -633,13 +633,6 @@
             position: relative; z-index: 1;
         }
 
-        @media (max-width: 1024px) {
-            .ai-agents-hero { grid-template-columns: 1fr; gap: 2.5rem; }
-        }
-        @media (max-width: 768px) {
-            .voice-stats { grid-template-columns: repeat(3, 1fr); }
-        }
-
         /* ===== ABOUT ===== */
         .about { background: var(--bg-1); }
         .about-grid {
@@ -855,7 +848,7 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            .about-grid, .cta-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+            .about-grid, .cta-inner, .ai-agents-hero { grid-template-columns: 1fr; gap: 2.5rem; }
             .about-visual { height: 320px; }
         }
         @media (max-width: 768px) {
@@ -885,12 +878,28 @@
             footer { padding: 2rem 1.5rem; }
             .footer-inner { flex-direction: column; text-align: center; }
             .footer-links { justify-content: center; }
+            .ai-demo-btn { width: 100%; justify-content: center; }
+            .agent-features { grid-template-columns: repeat(2, 1fr); }
+            .voice-orb { width: 80px; height: 80px; }
+            .voice-orb svg { width: 32px; height: 32px; }
+            .waveform { height: 48px; }
+            .ai-agents-text h2 { font-size: 2rem; }
+            .ai-agents-hero { margin-bottom: 3rem; }
         }
         @media (max-width: 480px) {
             .nav-right .nav-cta { display: none; }
             section { padding: 3.5rem 1rem; }
             .hero { padding: 0 1rem; }
             .tech-grid { grid-template-columns: repeat(3, 1fr); }
+            .agent-features { grid-template-columns: 1fr; }
+            .ai-agents-text h2 { font-size: 1.75rem; }
+            .voice-stats { gap: 0.5rem; }
+            .voice-stat { padding: 0.75rem 0.25rem; }
+            .voice-stat-num { font-size: 1.1rem; }
+            .voice-stat-label { font-size: 0.62rem; }
+            .waveform { gap: 3px; }
+            .wave-bar { width: 3px; }
+            .ai-agents-visual { padding: 1.75rem 1.25rem; }
         }
     </style>
 </head>
