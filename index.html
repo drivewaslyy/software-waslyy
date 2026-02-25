@@ -407,16 +407,24 @@
             border-color: var(--accent);
             box-shadow: var(--shadow-md);
         }
-        .tech-item .icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
         .tech-item .label {
-            font-size: 0.78rem; font-weight: 600;
-            color: var(--text-2);
+            font-size: 0.85rem; font-weight: 600;
+            color: var(--text-1);
             font-family: 'JetBrains Mono', monospace;
+            letter-spacing: 0.04em;
+            position: relative;
+            display: inline-block;
         }
+        .tech-item .label::after {
+            content: '';
+            position: absolute;
+            left: 0; bottom: -3px;
+            width: 0; height: 1.5px;
+            background: var(--accent);
+            transition: width 0.3s var(--ease);
+        }
+        .tech-item:hover .label::after { width: 100%; }
+        .tech-item:hover .label { color: var(--accent); }
 
         /* ===== AI AGENTS ===== */
         .ai-agents { background: var(--bg-1); }
@@ -1032,18 +1040,18 @@
             <p class="section-desc">We use battle-tested technologies to deliver reliable, scalable, and future-proof solutions.</p>
         </div>
         <div class="tech-grid">
-            <div class="tech-item reveal"><span class="icon">⚛️</span><span class="label">React</span></div>
-            <div class="tech-item reveal"><span class="icon">▲</span><span class="label">Next.js</span></div>
-            <div class="tech-item reveal"><span class="icon">🟢</span><span class="label">Node.js</span></div>
-            <div class="tech-item reveal"><span class="icon">🐈</span><span class="label">NestJS</span></div>
-            <div class="tech-item reveal"><span class="icon">🐘</span><span class="label">PostgreSQL</span></div>
-            <div class="tech-item reveal"><span class="icon">🔷</span><span class="label">TypeScript</span></div>
-            <div class="tech-item reveal"><span class="icon">🐳</span><span class="label">Docker</span></div>
-            <div class="tech-item reveal"><span class="icon">☁️</span><span class="label">GCP</span></div>
-            <div class="tech-item reveal"><span class="icon">🤖</span><span class="label">AI/ML</span></div>
-            <div class="tech-item reveal"><span class="icon">📱</span><span class="label">React Native</span></div>
-            <div class="tech-item reveal"><span class="icon">🔺</span><span class="label">Prisma</span></div>
-            <div class="tech-item reveal"><span class="icon">🎨</span><span class="label">Tailwind</span></div>
+            <div class="tech-item reveal"><span class="label">React</span></div>
+            <div class="tech-item reveal"><span class="label">Next.js</span></div>
+            <div class="tech-item reveal"><span class="label">Node.js</span></div>
+            <div class="tech-item reveal"><span class="label">NestJS</span></div>
+            <div class="tech-item reveal"><span class="label">PostgreSQL</span></div>
+            <div class="tech-item reveal"><span class="label">TypeScript</span></div>
+            <div class="tech-item reveal"><span class="label">Docker</span></div>
+            <div class="tech-item reveal"><span class="label">GCP</span></div>
+            <div class="tech-item reveal"><span class="label">AI / ML</span></div>
+            <div class="tech-item reveal"><span class="label">React Native</span></div>
+            <div class="tech-item reveal"><span class="label">Prisma</span></div>
+            <div class="tech-item reveal"><span class="label">Tailwind</span></div>
         </div>
     </section>
 
