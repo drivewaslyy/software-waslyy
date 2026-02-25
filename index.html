@@ -47,13 +47,14 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
 
         body {
             font-family: 'Outfit', sans-serif;
             background: var(--bg-0);
             color: var(--text-0);
             overflow-x: hidden;
+            max-width: 100vw;
             transition: background 0.6s var(--ease), color 0.6s var(--ease);
         }
 
@@ -95,13 +96,13 @@
         /* ===== NAV ===== */
         nav {
             position: fixed; top: 0; left: 0; width: 100%;
-            padding: 1.25rem 3rem;
+            padding: 1.25rem clamp(1rem, 4vw, 3rem);
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000;
             transition: all 0.5s var(--ease);
         }
         nav.scrolled {
-            padding: 0.8rem 3rem;
+            padding: 0.8rem clamp(1rem, 4vw, 3rem);
             background: color-mix(in srgb, var(--bg-0) 85%, transparent);
             backdrop-filter: blur(20px) saturate(1.5);
             border-bottom: 1px solid var(--border);
@@ -192,7 +193,7 @@
         .hero {
             min-height: 100vh;
             display: flex; align-items: center; justify-content: center;
-            position: relative; padding: 0 3rem;
+            position: relative; padding: 0 clamp(1rem, 4vw, 3rem);
         }
         .hero-content {
             max-width: 860px; text-align: center;
@@ -297,7 +298,7 @@
         }
 
         /* ===== SECTIONS ===== */
-        section { position: relative; z-index: 1; padding: 7rem 3rem; }
+        section { position: relative; z-index: 1; padding: 7rem clamp(1rem, 4vw, 3rem); }
 
         .section-head {
             text-align: center;
@@ -330,7 +331,7 @@
         .services { background: var(--bg-1); }
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
             gap: 1.5rem;
             max-width: 1200px; margin: 0 auto;
         }
@@ -390,7 +391,7 @@
         .tech-section { background: var(--bg-0); }
         .tech-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 120px), 1fr));
             gap: 1rem;
             max-width: 900px; margin: 0 auto;
         }
@@ -434,7 +435,7 @@
         .ai-agents-hero {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: clamp(2rem, 4vw, 4rem);
             align-items: center;
             margin-bottom: 5rem;
         }
@@ -500,6 +501,7 @@
             padding: 2.5rem;
             position: relative;
             overflow: hidden;
+            min-width: 0;
         }
         .ai-agents-visual::before {
             content: '';
@@ -594,7 +596,7 @@
         /* Agent feature cards */
         .agent-features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
             gap: 1.25rem;
         }
         .agent-card {
@@ -646,7 +648,7 @@
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: clamp(2rem, 4vw, 4rem);
             max-width: 1100px; margin: 0 auto;
             align-items: center;
         }
@@ -661,7 +663,7 @@
         }
         .about-text h2 {
             font-family: 'Syne', sans-serif;
-            font-size: 2.5rem; font-weight: 700;
+            font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700;
             letter-spacing: -0.03em;
             margin-bottom: 1.25rem;
         }
@@ -700,7 +702,7 @@
         .process-section { background: var(--bg-0); }
         .process-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
             gap: 1.5rem;
             max-width: 1100px; margin: 0 auto;
         }
@@ -750,11 +752,11 @@
         .cta-inner {
             max-width: 1000px; margin: 0 auto;
             display: grid; grid-template-columns: 1fr 1fr;
-            gap: 4rem; align-items: center;
+            gap: clamp(2rem, 4vw, 4rem); align-items: center;
         }
         .cta-text h2 {
             font-family: 'Syne', sans-serif;
-            font-size: 2.5rem; font-weight: 700;
+            font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700;
             letter-spacing: -0.03em;
             margin-bottom: 1rem;
         }
@@ -821,7 +823,7 @@
         footer {
             background: var(--bg-0);
             border-top: 1px solid var(--border);
-            padding: 3rem;
+            padding: 3rem clamp(1rem, 4vw, 3rem);
             position: relative; z-index: 1;
         }
         .footer-inner {
@@ -835,7 +837,7 @@
             letter-spacing: -0.03em;
         }
         .footer-brand span { color: var(--accent); }
-        .footer-links { display: flex; gap: 2rem; }
+        .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
         .footer-links a {
             color: var(--text-2); text-decoration: none;
             font-size: 0.85rem; font-weight: 500;
@@ -860,8 +862,6 @@
             .about-visual { height: 320px; }
         }
         @media (max-width: 768px) {
-            nav { padding: 1rem 1.5rem; }
-            nav.scrolled { padding: 0.75rem 1.5rem; }
             .nav-links {
                 display: none; position: fixed;
                 inset: 0;
@@ -869,11 +869,11 @@
                 flex-direction: column;
                 align-items: center; justify-content: center;
                 gap: 2rem;
+                z-index: 1000;
             }
             .nav-links.active { display: flex; }
             .mobile-toggle { display: flex; }
-            section { padding: 5rem 1.5rem; }
-            .hero { padding: 0 1.5rem; }
+            section { padding: 5rem clamp(1rem, 4vw, 1.5rem); }
             .hero h1 { font-size: 2.2rem; }
             .hero p { font-size: 0.95rem; }
             .hero-buttons { flex-direction: column; width: 100%; }
@@ -883,7 +883,6 @@
             .stat-label { font-size: 0.72rem; }
             .about-visual { height: 260px; }
             .cta-form { padding: 1.5rem; }
-            footer { padding: 2rem 1.5rem; }
             .footer-inner { flex-direction: column; text-align: center; }
             .footer-links { justify-content: center; }
             .ai-demo-btn { width: 100%; justify-content: center; }
@@ -891,16 +890,15 @@
             .voice-orb { width: 80px; height: 80px; }
             .voice-orb svg { width: 32px; height: 32px; }
             .waveform { height: 48px; }
-            .ai-agents-text h2 { font-size: 2rem; }
             .ai-agents-hero { margin-bottom: 3rem; }
+            .service-card { padding: 1.5rem; }
+            .ai-agents-text { min-width: 0; }
         }
         @media (max-width: 480px) {
             .nav-right .nav-cta { display: none; }
             section { padding: 3.5rem 1rem; }
-            .hero { padding: 0 1rem; }
             .tech-grid { grid-template-columns: repeat(3, 1fr); }
             .agent-features { grid-template-columns: 1fr; }
-            .ai-agents-text h2 { font-size: 1.75rem; }
             .voice-stats { gap: 0.5rem; }
             .voice-stat { padding: 0.75rem 0.25rem; }
             .voice-stat-num { font-size: 1.1rem; }
@@ -908,6 +906,7 @@
             .waveform { gap: 3px; }
             .wave-bar { width: 3px; }
             .ai-agents-visual { padding: 1.75rem 1.25rem; }
+            .hero-badge { font-size: 0.72rem; padding: 0.4rem 0.9rem; }
         }
     </style>
 </head>
