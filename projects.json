@@ -1,0 +1,19 @@
+[
+  { "name": "QCollection",             "category": "E-Commerce",  "image": "projects/qcollection.png",           "url": "https://qcollection.in/" },
+  { "name": "Biryani Fine Dining",     "category": "F&B",         "image": "projects/biryani-fine-dining.png",   "url": "https://www.biryanifinedining.com/" },
+  { "name": "Trism Tech",              "category": "AI · SaaS",   "image": "projects/trismtech.png",             "url": "https://www.trismtech.com/" },
+  { "name": "Amazing Grace",           "category": "Transport",   "image": "projects/amazing-grace.png",         "url": "https://www.amazing-grace-transportation.com/" },
+  { "name": "Minutrix",                "category": "AI · SaaS",   "image": "projects/minutrix.png",              "url": "#" },
+  { "name": "NovaReach",               "category": "SaaS",        "image": "projects/novareach-landing.png",     "url": "https://novareach-landing.vercel.app/" },
+  { "name": "Al-Kahf Groups",          "category": "Agency",      "image": "projects/alkahf-groups.png",         "url": "https://solutions.alkahfgroups.com/" },
+  { "name": "Dr. Miglani's Dental",   "category": "Healthcare",  "image": "projects/dr-miglani.png",            "url": "https://dr-miglani.vercel.app/" },
+  { "name": "All India Milli Council", "category": "Non-Profit",  "image": "projects/all-india-milli-council.png","url": "https://tg.allindiamillicouncil.org/" },
+  { "name": "Dr. Budhiraja's Dental", "category": "Healthcare",  "image": "projects/dr-budhiraja.png",          "url": "https://dr-budhiraja.vercel.app/" },
+  { "name": "Sparkle Dental",          "category": "Healthcare",  "image": "projects/sparkle-dental.png",        "url": "https://sparkle-dental.vercel.app/" },
+  { "name": "Prakash Dental",          "category": "Healthcare",  "image": "projects/prakash-dental.png",        "url": "https://prakash-dental.vercel.app/" },
+  { "name": "Dent-Shine",              "category": "Healthcare",  "image": "projects/dent-shine.png",            "url": "https://dent-shine.vercel.app/" },
+  { "name": "Shankari Dental",         "category": "Healthcare",  "image": "projects/shankari-dental.png",       "url": "https://shankari-dental.vercel.app/" },
+  { "name": "TeaTime Any Time",        "category": "F&B",         "image": "projects/teatime.png",               "url": "#" },
+  { "name": "Uniliv Studio",           "category": "Design",      "image": "projects/uniliv.png",                "url": "https://www.unilivstudio.com/" },
+  { "name": "Terminate Hunger",        "category": "Non-Profit",  "image": "projects/terminate-hunger.png",      "url": "https://terminate-hunger.vercel.app/" }
+]

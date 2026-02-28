@@ -856,6 +856,68 @@
         }
         .reveal.visible { opacity: 1; transform: translateY(0); }
 
+        /* ===== PROJECTS ===== */
+        .projects-section { background: var(--bg-0); }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+            gap: 1.25rem;
+            max-width: 1200px; margin: 0 auto;
+        }
+        .project-card {
+            display: block; text-decoration: none;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            transition: all 0.5s var(--ease);
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-lg);
+        }
+        .project-img {
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+        }
+        .project-img img {
+            width: 100%; height: 100%;
+            object-fit: cover; object-position: top;
+            display: block;
+            transition: transform 0.6s var(--ease);
+        }
+        .project-card:hover .project-img img { transform: scale(1.05); }
+        .project-info {
+            padding: 0.9rem 1.1rem;
+            border-top: 1px solid var(--border);
+        }
+        .project-cat {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem; font-weight: 500;
+            color: var(--neon);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            display: block; margin-bottom: 0.2rem;
+        }
+        .project-title-row {
+            display: flex; align-items: center;
+            justify-content: space-between; gap: 0.5rem;
+        }
+        .project-name {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.92rem; font-weight: 700;
+            color: var(--text-0);
+            transition: color 0.3s ease;
+        }
+        .project-card:hover .project-name { color: var(--accent); }
+        .project-arrow {
+            font-size: 1rem; color: var(--text-2);
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        .project-card:hover .project-arrow { color: var(--accent); transform: translate(2px, -2px); }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .about-grid, .cta-inner, .ai-agents-hero { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -932,6 +994,7 @@
             <li><a href="#ai-agents">AI Agents</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#process">Process</a></li>
+            <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="nav-right">
@@ -970,6 +1033,16 @@
             </div>
         </div>
         <div class="scroll-hint"><div class="line"></div></div>
+    </section>
+
+    <!-- Projects -->
+    <section class="projects-section" id="projects">
+        <div class="section-head reveal">
+            <span class="section-tag">// our work</span>
+            <h2 class="section-title">Websites We've Worked On</h2>
+            <p class="section-desc">A selection of websites we've designed and built for clients around the world.</p>
+        </div>
+        <div class="projects-grid" id="projectsGrid"></div>
     </section>
 
     <!-- Services -->
@@ -1252,6 +1325,7 @@
                 <a href="#ai-agents">AI Agents</a>
                 <a href="#about">About</a>
                 <a href="#process">Process</a>
+                <a href="#projects">Projects</a>
                 <a href="#contact">Contact</a>
             </div>
             <div class="footer-copy">© 2025 Waslyy Software Solutions</div>
@@ -1588,6 +1662,25 @@
         el.style.transitionDelay = `${(i % 6) * 0.08}s`;
         revealObserver.observe(el);
     });
+
+    // ===== PROJECTS =====
+    fetch('projects.json')
+        .then(r => r.json())
+        .then(projects => {
+            const grid = document.getElementById('projectsGrid');
+            grid.innerHTML = projects.map(p => `
+                <a class="project-card reveal" href="${p.url}" target="_blank" rel="noopener noreferrer">
+                    <div class="project-img"><img src="${p.image}" alt="${p.name}" loading="lazy"></div>
+                    <div class="project-info">
+                        <span class="project-cat">${p.category}</span>
+                        <div class="project-title-row"><h3 class="project-name">${p.name}</h3><span class="project-arrow">↗</span></div>
+                    </div>
+                </a>`).join('');
+            grid.querySelectorAll('.project-card').forEach((el, i) => {
+                el.style.transitionDelay = `${(i % 6) * 0.08}s`;
+                revealObserver.observe(el);
+            });
+        });
 
     // ===== SMOOTH SCROLL =====
     document.querySelectorAll('a[href^="#"]').forEach(a => {

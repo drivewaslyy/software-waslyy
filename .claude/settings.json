@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "additionalDirectories": [
+      "/Users/abdulahad/Development/Waslyy/software-waslyy/$P"
+    ],
+    "allow": [
+      "Bash(python3 -c \":*)"
+    ]
+  }
+}
