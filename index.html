@@ -181,13 +181,20 @@
 
         .mobile-toggle {
             display: none; flex-direction: column; gap: 5px;
-            cursor: pointer; z-index: 1001;
+            cursor: pointer; z-index: 1002;
+            width: 28px; height: 22px;
+            justify-content: center; align-items: center;
+            position: relative;
         }
         .mobile-toggle span {
             width: 24px; height: 2px;
             background: var(--text-0);
             transition: all 0.3s ease;
+            transform-origin: center;
         }
+        .mobile-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .mobile-toggle.active span:nth-child(2) { opacity: 0; }
+        .mobile-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
         /* ===== HERO ===== */
         .hero {
@@ -926,15 +933,30 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none; position: fixed;
-                inset: 0;
+                top: 0; left: 0; right: 0; bottom: 0;
+                width: 100vw; height: 100vh; height: 100dvh;
+                margin: 0; padding: 5rem 1.5rem 2rem;
                 background: var(--bg-0);
                 flex-direction: column;
                 align-items: center; justify-content: center;
-                gap: 2rem;
+                gap: 1.75rem;
                 z-index: 1000;
+                overflow-y: auto;
             }
             .nav-links.active { display: flex; }
+            .nav-links a { font-size: 1.1rem; }
             .mobile-toggle { display: flex; }
+            /* When menu is open, neutralize nav's backdrop-filter/background so it
+               doesn't form a containing block that confines the fixed overlay,
+               and so it doesn't sit visually above the menu. */
+            body.menu-open nav,
+            body.menu-open nav.scrolled {
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                background: transparent;
+                border-bottom: none;
+            }
+            body.menu-open { overflow: hidden; }
             section { padding: 5rem clamp(1rem, 4vw, 1.5rem); }
             .hero h1 { font-size: 2.2rem; }
             .hero p { font-size: 0.95rem; }
@@ -1289,7 +1311,7 @@
                 <div class="contact-items">
                     <div class="contact-item">
                         <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        <span>hello@waslyy.com</span>
+                        <span>contact@waslyysolutions.com</span>
                     </div>
                     <div class="contact-item">
                         <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
@@ -1650,8 +1672,13 @@
     const navLinks = document.getElementById('navLinks');
 
     addEventListener('scroll', () => navbar.classList.toggle('scrolled', scrollY > 50));
-    mobileToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('active')));
+    const setMenu = (open) => {
+        navLinks.classList.toggle('active', open);
+        mobileToggle.classList.toggle('active', open);
+        document.body.classList.toggle('menu-open', open);
+    };
+    mobileToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('active')));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
 
     // ===== SCROLL REVEAL =====
     const revealObserver = new IntersectionObserver((entries) => {
