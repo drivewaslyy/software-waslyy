@@ -1,10 +1,14 @@
 {
   "permissions": {
+    "allow": [
+      "Bash(python3 -c \":*)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(node --check api/contact.js)"
+    ],
     "additionalDirectories": [
       "/Users/abdulahad/Development/Waslyy/software-waslyy/$P"
-    ],
-    "allow": [
-      "Bash(python3 -c \":*)"
     ]
   }
 }

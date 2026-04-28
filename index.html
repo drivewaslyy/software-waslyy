@@ -825,6 +825,24 @@
             transform: translateY(-2px);
             box-shadow: var(--shadow-accent);
         }
+        .form-submit:disabled {
+            opacity: 0.6; cursor: not-allowed;
+            transform: none; box-shadow: none;
+        }
+        .hp-field {
+            position: absolute !important;
+            left: -9999px !important;
+            width: 1px !important; height: 1px !important;
+            opacity: 0 !important; pointer-events: none !important;
+        }
+        .form-status {
+            margin-top: 1rem;
+            font-size: 0.88rem;
+            min-height: 1.2em;
+            color: var(--text-2);
+        }
+        .form-status.success { color: var(--neon); }
+        .form-status.error { color: #ef4444; }
 
         /* ===== FOOTER ===== */
         footer {
@@ -1319,21 +1337,23 @@
                     </div>
                 </div>
             </div>
-            <div class="cta-form reveal">
+            <form class="cta-form reveal" id="contactForm" novalidate>
                 <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" placeholder="Your name">
+                    <label for="cf-name">Name</label>
+                    <input id="cf-name" name="name" type="text" placeholder="Your name" required maxlength="200" autocomplete="name">
                 </div>
                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" placeholder="you@company.com">
+                    <label for="cf-email">Email</label>
+                    <input id="cf-email" name="email" type="email" placeholder="you@company.com" required autocomplete="email">
                 </div>
                 <div class="form-group">
-                    <label>Tell us about your project</label>
-                    <textarea placeholder="Budget, timeline, goals..."></textarea>
+                    <label for="cf-message">Tell us about your project</label>
+                    <textarea id="cf-message" name="message" placeholder="Budget, timeline, goals..." required maxlength="5000"></textarea>
                 </div>
-                <button class="form-submit">Send Message →</button>
-            </div>
+                <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp-field" aria-hidden="true">
+                <button type="submit" class="form-submit">Send Message →</button>
+                <p class="form-status" role="status" aria-live="polite"></p>
+            </form>
         </div>
     </section>
 
@@ -1679,6 +1699,42 @@
     };
     mobileToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('active')));
     navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+    // ===== CONTACT FORM =====
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submit = contactForm.querySelector('.form-submit');
+            const status = contactForm.querySelector('.form-status');
+            const data = Object.fromEntries(new FormData(contactForm));
+            const original = submit.textContent;
+            submit.disabled = true;
+            submit.textContent = 'Sending...';
+            status.textContent = '';
+            status.className = 'form-status';
+            try {
+                const r = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                });
+                if (!r.ok) {
+                    const err = await r.json().catch(() => ({}));
+                    throw new Error(err.error || 'Failed');
+                }
+                contactForm.reset();
+                status.textContent = "Thanks — we'll get back to you within 24 hours.";
+                status.classList.add('success');
+            } catch (err) {
+                status.textContent = 'Something went wrong. Email us at contact@waslyysolutions.com.';
+                status.classList.add('error');
+            } finally {
+                submit.disabled = false;
+                submit.textContent = original;
+            }
+        });
+    }
 
     // ===== SCROLL REVEAL =====
     const revealObserver = new IntersectionObserver((entries) => {
