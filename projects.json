@@ -15,5 +15,6 @@
   { "name": "Shankari Dental",         "category": "Healthcare",  "image": "projects/shankari-dental.png",       "url": "https://shankari-dental.vercel.app/" },
   { "name": "TeaTime Any Time",        "category": "F&B",         "image": "projects/teatime.png",               "url": "https://www.teatimesanytime.com/" },
   { "name": "Uniliv Studio",           "category": "Design",      "image": "projects/uniliv.png",                "url": "https://www.unilivstudio.com/" },
-  { "name": "Terminate Hunger",        "category": "Non-Profit",  "image": "projects/terminate-hunger.png",      "url": "https://terminate-hunger.vercel.app/" }
+  { "name": "Terminate Hunger",        "category": "Non-Profit",  "image": "projects/terminate-hunger.png",      "url": "https://terminate-hunger.vercel.app/" },
+  { "name": "Manu Foundation",         "category": "Non-Profit",  "image": "projects/manu-foundation.png",       "url": "https://www.manufoundation.org/" }
 ]
