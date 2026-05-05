@@ -1,0 +1,48 @@
+# Waslyy Software Solutions
+
+> Remote-first software development agency that builds custom software, AI agents, websites, mobile apps, and e-commerce platforms for clients worldwide.
+
+## About
+
+Waslyy Software Solutions is a software development team specializing in shipping production-grade products. The team works with founders, growing companies, and enterprises that need reliable engineering partners.
+
+- **Website:** https://www.waslyysolutions.com/
+- **Email:** contact@waslyysolutions.com
+- **Location:** Global — remote first
+- **LinkedIn:** https://www.linkedin.com/posts/activity-7455708219764551680-AJKt
+- **Instagram:** https://www.instagram.com/waslyysolutions
+
+## Services
+
+- **Web Development** — High-converting websites and e-commerce stores optimized for speed, SEO, and mobile.
+- **Mobile App Development** — Native-feeling iOS and Android experiences, from ride-sharing to social platforms.
+- **Custom Software Development** — Tailored business software, internal tools, and SaaS platforms.
+- **AI Agents & Automation** — Voice AI agents that handle calls 24/7, plus custom AI automation that integrates with existing systems (CRM, calendars, email).
+- **E-Commerce Platforms** — Full storefronts with payments, inventory, and shipping integrations.
+
+## AI Voice Agents
+
+Waslyy builds production AI voice agents that:
+- Answer calls 24/7 in natural conversation
+- Book appointments and update records
+- Send follow-up emails and trigger downstream workflows
+- Connect to existing systems (CRMs, calendars, ticketing)
+
+## Selected Work
+
+A subset of recent client projects (full list at https://www.waslyysolutions.com/#projects):
+
+- **QCollection** — E-commerce store
+- **Biryani Fine Dining** — F&B brand site
+- **Trism Tech** — AI / SaaS product
+- **Minutrix** — AI / SaaS product
+- **NovaReach** — SaaS landing
+- **Amazing Grace Transportation** — Transport
+- **Manu Foundation** — Non-profit
+- **Multiple healthcare clinics** — Dental and medical practice sites
+
+## Contact
+
+For project inquiries, partnerships, or hiring Waslyy:
+- Email: contact@waslyysolutions.com
+- Contact form: https://www.waslyysolutions.com/#contact
