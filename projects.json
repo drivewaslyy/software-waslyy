@@ -1,5 +1,29 @@
 [
   {
+    "name": "TeaTime Any Time",
+    "category": "F&B",
+    "image": "projects/teatime.webp",
+    "url": "https://www.teatimesanytime.com/"
+  },
+  {
+    "name": "Manu Foundation",
+    "category": "Non-Profit",
+    "image": "projects/manu-foundation.webp",
+    "url": "https://www.manufoundation.org/"
+  },
+  {
+    "name": "Al-Kahf Groups",
+    "category": "Agency",
+    "image": "projects/alkahf-groups.webp",
+    "url": "https://solutions.alkahfgroups.com/"
+  },
+  {
+    "name": "Uniliv Studio",
+    "category": "Design",
+    "image": "projects/uniliv.webp",
+    "url": "https://www.unilivstudio.com/"
+  },
+  {
     "name": "QCollection",
     "category": "E-Commerce",
     "image": "projects/qcollection.webp",
@@ -13,7 +37,7 @@
   },
   {
     "name": "Trism Tech",
-    "category": "AI \u00b7 SaaS",
+    "category": "AI · SaaS",
     "image": "projects/trismtech.webp",
     "url": "https://www.trismtech.com/"
   },
@@ -25,7 +49,7 @@
   },
   {
     "name": "Minutrix",
-    "category": "AI \u00b7 SaaS",
+    "category": "AI · SaaS",
     "image": "projects/minutrix.webp",
     "url": "https://www.minutrix.in/"
   },
@@ -34,12 +58,6 @@
     "category": "SaaS",
     "image": "projects/novareach-landing.webp",
     "url": "https://novareach-landing.vercel.app/"
-  },
-  {
-    "name": "Al-Kahf Groups",
-    "category": "Agency",
-    "image": "projects/alkahf-groups.webp",
-    "url": "https://solutions.alkahfgroups.com/"
   },
   {
     "name": "Dr. Miglani's Dental",
@@ -84,27 +102,9 @@
     "url": "https://shankari-dental.vercel.app/"
   },
   {
-    "name": "TeaTime Any Time",
-    "category": "F&B",
-    "image": "projects/teatime.webp",
-    "url": "https://www.teatimesanytime.com/"
-  },
-  {
-    "name": "Uniliv Studio",
-    "category": "Design",
-    "image": "projects/uniliv.webp",
-    "url": "https://www.unilivstudio.com/"
-  },
-  {
     "name": "Terminate Hunger",
     "category": "Non-Profit",
     "image": "projects/terminate-hunger.webp",
     "url": "https://terminate-hunger.vercel.app/"
-  },
-  {
-    "name": "Manu Foundation",
-    "category": "Non-Profit",
-    "image": "projects/manu-foundation.webp",
-    "url": "https://www.manufoundation.org/"
   }
 ]
